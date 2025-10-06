@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    min-height: 100vh;
+    background: linear-gradient(120deg, yellow, orange);
+}
+
+header {
+    font-size: 2rem;
+}
