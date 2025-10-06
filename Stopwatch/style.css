@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    min-height: 100vh;
+    background: linear-gradient(120deg, yellow, orange);
+}
+
+header {
+    font-size: 2rem;
+}
+
+header, .counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-container {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.time {
+    margin-left: 1rem;
+    font-size: 5rem;
+}
+
+.label {
+    margin: 2rem 0 0 0.3rem;
+}
+
+.btn-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-timer, .stop-timer, .reset-timer {
+    padding: 0.5rem 1rem;
+    color: orange;
+    width: 7%;
+    background: white;
+    margin-left: 2rem;
+    border: 1px solid orange;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}

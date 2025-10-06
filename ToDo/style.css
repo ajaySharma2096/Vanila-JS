@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    background-image: linear-gradient(120deg, #eded75, #f2a517);
+    min-height: 100vh;
+}
+
+header {
+    font-size: 1.5rem;
+}
+
+header, form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button {
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background: white;
+    border: 1px solid #f2a517;
+}
+
+form, button {
+    color: #f2a517;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    min-width: 30%;
+    list-style: none; /* to remove the bullets from the list */
+}
+
+.todo {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    color: #f2a517;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* for equal space between the elemen */
+}
+
+.todo li {
+    flex: 1 /* to align the buttons at the right */
+}
+
+.checked-btn, .delete-btn {
+    border: none;
+    border-radius: 0.1rem;
+    padding: 0.2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    background: white;
+}
+
+.fa-trash, .fa-square, .fa-check {
+    pointer-events: none; /* to disable the event click on icons */
+}
+
+.completed {
+    text-decoration: line-through; /* to add a line through to mark it as completed */
+    opacity: 0.5;
+}
+
+select {
+    -webkit-appearance: none; /* to disable the default css of the browser like - chrome */
+    -moz-appearance: none; /* to disable the default css of the browser like - mozila, safari */
+    appearance: none; /* to disable the default css */
+    border: none;
+    outline: none;
+    color: #f2a517;
+    width: 10rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.select::after {
+    content: '\25BC'; /* UNICODE value of inverted triangle */
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    padding: 0.5rem;
+    background: #f2a517;
+    pointer-events: none; /* to disable the events click on inverted triangle so that default click of select will work */
+}
+
