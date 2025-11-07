@@ -3,3 +3,49 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    color: white;
+    min-height: 100vh;
+    background: linear-gradient(120deg, yellow, orange);
+}
+
+header {
+    font-size: 2rem;
+    color: rgb(80, 79, 79);
+}
+
+header, .traffic-light-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.traffic-light-container {
+    margin-top: 2rem;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.traffic-light {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5rem;
+    border: 1px solid black;
+}
+
+.red-light {
+    background: red;
+}
+
+.yellow-light {
+    background: yellow;
+}
+
+.green-light {
+    background: green;
+}
+
+.hide {
+    visibility: hidden;
+}
