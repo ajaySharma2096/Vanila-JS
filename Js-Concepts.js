@@ -74,3 +74,24 @@ tesla.drive();
 tesla.charge();
 
 // -----------------------------------------Polymorphism---------------------------------------------
+
+class Animal {
+  speak() {
+    console.log("Animal makes some sound...");
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log("Dog Barks...");
+  }
+}
+
+class Cat extends Animal {
+  speak() {
+    console.log("Cat Meows...");
+  }
+}
+
+const cat = new Cat();
+cat.speak();
