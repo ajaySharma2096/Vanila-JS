@@ -1,14 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Infinite Scroll</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vertical Infinite Scroll</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>Infinite Scroll</header>
-    <div class="infinite-scroll-container"></div>
-    <script src="./app.js"></script>
+  <main class="wrap">
+    <h1>Vertical Infinite Scroll</h1>
+    <div id="container"></div>
+    <div id="loader" class="loader" hidden>Loading more items…</div>
+    <div id="sentinel" class="sentinel" aria-hidden="true"></div>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
