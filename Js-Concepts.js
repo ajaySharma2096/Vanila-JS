@@ -82,8 +82,12 @@ class Animal {
 }
 
 class Dog extends Animal {
+  constructor(name) {
+    super();
+    this.name = name;
+  }
   speak() {
-    console.log("Dog Barks...");
+    console.log(`${this.name} makes the sound`);
   }
 }
 
@@ -96,5 +100,101 @@ class Cat extends Animal {
 const cat = new Cat();
 cat.speak();
 
-const dog = new Dog();
+const dog = new Dog("Dog");
 dog.speak();
+
+// ------------------------------------Singleton Pattern-----------------------------------------
+
+class Database {
+  constructor() {
+    if (Database.instance) {
+      return Database.instance;
+    }
+    this.connection = "DB Connected Successfully";
+    Database.instance = this;
+  }
+}
+
+const db1 = new Database();
+const db2 = new Database();
+
+console.log(db1 === db2);
+
+// ------------------------------------Factory Pattern-----------------------------------------
+class MySQLConnection {
+  connect() {
+    console.log("Connected to MySQL");
+  }
+}
+
+class MongoConnection {
+  connect() {
+    console.log("Connected to MongoDB");
+  }
+}
+
+class DBFactory {
+  static createConnection(dbType) {
+    if (dbType === "mysql") return new MySQLConnection();
+    if (dbType === "mongo") return new MongoConnection();
+    throw new Error("Unknown dbType found !!!");
+  }
+}
+
+const sqlConnection = DBFactory.createConnection("mysql");
+const MongoDBConnection = DBFactory.createConnection("mongo");
+
+sqlConnection.connect();
+MongoDBConnection.connect();
+
+// --------------------------------------Module Pattern--------------------------------------------
+
+const modulePattern = (function () {
+  let count = 0;
+  function log(message) {
+    console.log(message);
+  }
+
+  return {
+    increment() {
+      count++;
+      log(`Count increased to ${count}`);
+    },
+
+    decrement() {
+      count--;
+      log(`Count decreased to ${count}`);
+    },
+
+    getCount() {
+      return count;
+    },
+  };
+})();
+
+modulePattern.increment();
+modulePattern.increment();
+console.log(modulePattern.getCount());
+modulePattern.decrement();
+console.log(modulePattern.getCount());
+
+const configModule = (function () {
+  const settings = {
+    theme: "dark",
+    language: "en",
+  };
+
+  return {
+    get(key) {
+      return settings[key];
+    },
+
+    set(key, value) {
+      settings[key] = value;
+    },
+  };
+})();
+
+console.log(configModule.get("theme"));
+configModule.set("theme", "light");
+console.log(configModule.get("theme"));
