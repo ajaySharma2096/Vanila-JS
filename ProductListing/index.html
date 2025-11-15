@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Listing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="heading">Products Listing</h1>
+
+    <div id="product-list" class="product-list"></div>
+
+    <!-- PRODUCT DETAILS MODAL -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">X</span>
+            <h2>Product Details</h2>
+            <p id="description"></p>
+            <p><strong>Rating:</strong> <span id="rating"></span></p>
+            <p><strong>Count:</strong> <span id="count"></span></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

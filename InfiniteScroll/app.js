@@ -1,6 +1,6 @@
-const container = document.getElementById('container');
-const sentinel = document.getElementById('sentinel');
-const loader = document.getElementById('loader');
+const container = document.getElementById("container");
+const sentinel = document.getElementById("sentinel");
+const loader = document.getElementById("loader");
 
 let count = 0;
 let loading = false;
@@ -21,9 +21,9 @@ function loadItems() {
 
 // Function to render items
 function renderItems(items) {
-  items.forEach(num => {
-    const div = document.createElement('div');
-    div.className = 'item';
+  items.forEach((num) => {
+    const div = document.createElement("div");
+    div.className = "item";
     div.textContent = num;
     container.appendChild(div);
   });
@@ -46,12 +46,15 @@ async function addItems() {
 addItems();
 
 // Observe sentinel
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !loading) {
-      addItems();
-    }
-  });
-}, { rootMargin: '100px' });
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !loading) {
+        addItems();
+      }
+    });
+  },
+  { rootMargin: "100px" }
+);
 
 observer.observe(sentinel);

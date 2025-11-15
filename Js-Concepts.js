@@ -198,3 +198,67 @@ const configModule = (function () {
 console.log(configModule.get("theme"));
 configModule.set("theme", "light");
 console.log(configModule.get("theme"));
+
+// --------------------------------------Module Pattern--------------------------------------------
+
+const VehiclePrototype = {
+  start() {
+    console.log(`${this.type} has started`);
+  },
+  stop() {
+    console.log(`${this.type} has stopped`);
+  },
+};
+
+const myCar = Object.create(VehiclePrototype);
+myCar.type = "Maruti";
+
+myCar.start();
+myCar.stop();
+
+// --------------------------------------Observer Pattern--------------------------------------------
+
+class StockMarket {
+  constructor() {
+    this.observers = [];
+  }
+
+  subscribe(item) {
+    this.observers.push(item);
+  }
+
+  unsubscribe(item) {
+    this.observers = this.observers.filter((value) => value !== item);
+  }
+
+  notify(value) {
+    this.observers.forEach((item) => {
+      item.update(value);
+    });
+  }
+}
+
+class mobileApp {
+  static update(value) {
+    console.log(
+      `Mobile App - Stock price has been update, New Value is ${value}`
+    );
+  }
+}
+
+class desktopApp {
+  static update(value) {
+    console.log(
+      `Desktop App - Stock price has been update, New Value is ${value}`
+    );
+  }
+}
+
+const myStock = new StockMarket();
+myStock.subscribe(mobileApp);
+myStock.subscribe(desktopApp);
+
+myStock.notify(150);
+
+myStock.unsubscribe(desktopApp);
+myStock.notify(200);
